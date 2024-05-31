@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div class="Sign">
+    <div class="text">
+        <h1>Biomedical Engineering</h1>
+        <p>Applying engineering principles to healthcare and medicine</p>
+    </div>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form id="signInForm" onsubmit="return validateForm()">
+            <div class="sign">
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required onblur="validateInput(this)" oninput="retrievePassword()"><br>
+            </div>
+            <div class="sign">
+                <label for="password">Password:</label><br>
+                <input type="password" id="pwd" name="pwd" required onblur="validateInput(this); validatePassword()"><br>
+            </div>
+            <div class="sign">
+                <label for="confirmPassword">Confirm Password:</label><br>
+                <input type="password" id="confirmPassword" name="confirmPassword" required onblur="validateInput(this); validatePassword()"><br>
+            </div>
+            <div class="remember-me">
+                <input type="checkbox" id="rememberMe" name="rememberMe">
+                <label for="rememberMe">Remember Me</label>
+            </div>
+            <a href="#" class="button" onclick="validateForm()">Sign In</a>
+        </form>
+    </div>
+</div>
+<div class="reference">
+    <p>Background image source: <a href="https://www.pinterest.ph/pin/455989531017498610/" target="_blank">Image Link</a></p>
+</div>
+</body>    
+<script>
+    function validateInput(input) {
+        if (input.value === '') {
+            input.style.border = '3px solid red';
+        } else {
+            input.style.border = '3px solid green';
+        }
+    }
+
+    function validatePassword() {
+        var pwd = document.getElementById('pwd');
+        var confirmPassword = document.getElementById('confirmPassword');
+        if (pwd.value !== confirmPassword.value) {
+            pwd.style.border = '3px solid red';
+            confirmPassword.style.border = '3px solid red';
+        } else {
+            pwd.style.border = '3px solid green';
+            confirmPassword.style.border = '3px solid green';
+        }
+    }
+
+    function validateForm() {
+        var email = document.getElementById('email');
+        var pwd = document.getElementById('pwd');
+        var confirmPassword = document.getElementById('confirmPassword');
+        
+        if (email.value === '' || pwd.value === '' || confirmPassword.value === '') {
+            alert('Please fill out all fields before signing in.');
+            return false;
+        }
+
+        if (!email.value.endsWith('@gmail.com')) {
+            alert('Please enter a valid Gmail address.');
+            email.style.border = '3px solid red';
+            return false;
+        }
+
+        if (pwd.value !== confirmPassword.value) {
+            alert('Passwords do not match.');
+            return false;
+        }
+
+        if (document.getElementById('rememberMe').checked) {
+            var remember = JSON.parse(localStorage.getItem('remember') || '{}');
+            remember[email.value] = pwd.value;
+            localStorage.setItem('remember', JSON.stringify(remember));
+        }
+
+        window.location.href = 'file:///C:/Users/Asus/Desktop/CS_QU4/Bio2.html#about';
+        return true;
+    }
+
+    function retrievePassword() {
+        var email = document.getElementById('email').value;
+        var remember = JSON.parse(localStorage.getItem('remember') || '{}');
+        if (remember[email]) {
+            document.getElementById('pwd').value = remember[email];
+            document.getElementById('confirmPassword').value = remember[email];
+            document.getElementById('rememberMe').checked = true;
+        }
+    }
+
+    window.onload = function() {
+        var credentials = JSON.parse(localStorage.getItem('credentials') || '{}');
+        for (var email in credentials) {
+            if (credentials.hasOwnProperty(email)) {
+                document.getElementById('email').value = email;
+                document.getElementById('pwd').value = credentials[email];
+                document.getElementById('confirmPassword').value = credentials[email];
+                document.getElementById('rememberMe').checked = true;
+                break; 
+            }
+        }
+    }
+</script>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    margin: 0px;
+    background-image: url('https://i.pinimg.com/originals/11/d2/13/11d2134d24691b5cb57bbab79ad9497b.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.Sign {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+}
+.text {
+    color: white;
+    max-width: 60%;
+}
+.text h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+.text p {
+    font-size: 24px;
+}
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+}
+h2 {
+    margin-bottom: 20px;
+    color: #00796b;
+}
+.sign {
+    margin-bottom: 15px;
+    text-align: left;
+}
+.sign label {
+    display: block;
+    margin-bottom: 5px;
+    color: #00796b;
+}
+.sign input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #00796b;
+    border-radius: 4px;
+}
+.remember-me {
+    text-align: left;
+    margin-bottom: 15px;
+}
+.remember-me label {
+    color: #00796b;
+}
+a.button {
+    display: block;
+    text-align: center;
+    background-color: #2AE6DA;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 15px;
+    cursor: pointer;
+}
+.reference {
+    margin-top: auto;
+    color: white;
+}
+.reference a {
+    color: #00796b;
+    text-decoration: none;
+}
+</style>
+</html>

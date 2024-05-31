@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+<header>
+    <h1>Biomedical Engineering Applying Engineering Principles to Healthcare and Medicine</h1>
+</header>
+
+<nav>
+        <div class="buttons">
+            <a href="file:///C:/Users/Asus/Desktop/CS_QU4/index.html"><button class="logout-btn">Logout</button></a>
+        </div>
+</nav>
+
+<div class="container">
+    <div class="grid">
+        <section id="Research" onclick="Research()">
+            <h2>Research</h2>
+            <img src="https://miro.medium.com/v2/resize:fit:672/0*R4UkqWm1JwQxmXMG.jpg" alt="Abstract Image" style="max-width: 100%;">
+            <p>This website provides an overview of biomedical engineering, discussing its importance and impact on healthcare and medicine. </p>
+        </section>
+        
+        <section id="About" onclick="About()">
+            <h2>About</h2>
+            <img src="https://ababilacademy.in/wp-content/uploads/2023/10/healthcare-new.jpg" alt="Abstract Image" style="max-width: 100%;">
+            <p>Applying engineering principles to healthcare and medicine involves leveraging innovation and technology to address challenges in diagnosis, treatment, and patient care. y integrating engineering methodologies with medical expertise, we strive to develop groundbreaking solutions that advance the field and improve healthcare outcomes for all.</p>
+        </section>
+		
+		<section id="Reference" onclick="Reference()">
+            <h2>Reference</h2>
+			<img src="https://imageio.forbes.com/specials-images/imageserve/636063ae49e46108de0472a1/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds" alt="Abstract Image" style="max-width: 100%;">
+            <p>This website is created by a student solely for academic purposes. All content and materials are intended for educational use and not for commercial or professional applications.</p>
+        </section>
+		
+		<section id="Help" onclick="Help()">
+            <h2>Help</h2>
+			<img src="https://s3.amazonaws.com/utep-uploads/wp-content/uploads/engineering_ucr/2022/07/14082510/med-device-engineer.jpg" alt="Abstract Image" style="max-width: 100%;">
+            <p>For help and more discussions about this topic I solely suggest the websites I will link in this webpage.</p>
+    </div>
+</div>
+
+</body>
+<script>
+function Research() {
+            window.location.href = "file:///C:/Users/Asus/Desktop/CS_QU4/Bio3.html";
+        }
+function About() {
+            window.location.href = "file:///C:/Users/Asus/Desktop/CS_QU4/Bio4.html";
+        }
+function Reference() {
+            window.location.href = "file:///C:/Users/Asus/Desktop/CS_QU4/Bio5.html";
+        }
+function Help() {
+            window.location.href = "file:///C:/Users/Asus/Desktop/CS_QU4/Bio6.html";
+        }
+</script>
+<style>
+body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-image: url('https://www.mtu.edu/biomedical/department/what-is/images/biomedical-eng-banner1600.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white; 
+            padding: 50px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media(min-width: 1024px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        section:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: #1a785c;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+		h1 {
+            color:#f0ffff;
+        }
+		.buttons {
+			display: flex;
+			gap: 10px;
+			}
+		.back-btn, .logout-btn {
+			padding: 10px 20px;
+			color: white;
+			text-decoration: none;
+			cursor: pointer;
+			border-radius: 5px;
+			border: none;
+			}
+		.back-btn {
+			background-color: #2a9d8f;
+			}
+		.back-btn:hover {
+			background-color: #21867a;
+			}
+		.logout-btn {
+			background-color: #e76f51;
+			}
+		.logout-btn:hover {
+			background-color: #d9534f;
+			}
+		.container {
+			padding: 20px;
+			max-width: 1200px;
+			margin: 0 auto;
+			}
+		.about {
+			margin: 20px 0;
+			}
+</style>
+</html>
